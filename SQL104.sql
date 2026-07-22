@@ -1,30 +1,17 @@
--- Insert Into
+-- NULL operator
 
 select * from dbo.Employees
-
-/*to insert record in any table first we have to write name of the columns then its values*/
-insert into dbo.Employees (EmployeeID, FirstName, LastName, Department, Salary, HireDate)
-values (6, 'Anil', 'Ambani', 'AI', 87000, '12-07-1991')
-
-select * from dbo.Employees
-
-/*to insert record in any table for not all columns we have to mentione only specific column name then its values 
- The records which are empty will shows NULL value*/
-
-insert into dbo.Employees(EmployeeID, FirstName, LastName)
-values(8 , 'Raja', 'Bouri') 
-
-select * from dbo.Employees
-
-/*we can insert value without writing name of the columns for that we have to enter value of all columns */
 
 insert into dbo.Employees
-values(9, 'Mahi','Jha','HR',55000, '2002-12-01')
+values(10,'Raj', ' ', 'IT', 44000,'2001-4-3')
 
-/*If we do not want to write name of the columns then how we will know the order of the columns means which value
-to write in first then so on.. TO know the order of columns we have to know there ordinal position*/
+insert into dbo.Employees
+values(11,'Viash', 'Gupta ', '0', 44000,'2001-4-3')
 
-select * from INFORMATION_SCHEMA.COLUMNS
-where TABLE_NAME = 'Employees'
+/*if we want to check records with Null value*/
 
+select * from dbo.employees where Department = Null  -- this does not throw any error but does not give any result
 
+select * from dbo.Employees where Department is Null  -- this is correct statement to find Null value
+
+select * from dbo.Employees where Department is not Null  -- this finds department where value is not Null
